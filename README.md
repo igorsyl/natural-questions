@@ -1,6 +1,6 @@
-## Huggingface Transformers Model for Google's Natural Questions Dataset
+# Huggingface Transformers Model for Google's Natural Questions Dataset
 
-# Overview
+## Overview
 
 I trained BertForQuestionAnswering using bert-base-uncased with maximum sequence length of 512.
 
@@ -20,24 +20,24 @@ I used the formula for score as outlined in the BERT-Joint paper since I suspect
 
 I believe that negative sampling is critical to achiving better performance. I don't expect random samping of negative examples to be optimal. Instead, I expect a better negative sampling strategy is to weight negative samples by a difficulty score. In this case, difficult negative examples would be more likely to be sampled. A strategy is to train the model using uniform random negative sampling and use the score output to train the same model using weighted random negative sampling. This process could be repeated a few times to converge to a stable assignment of negative weights.
 
-# Honest Opinion
+## Honest Opinion
 
 Given I started with only superficial knowledge of the transformers library, this project gave me a great opportunity to learn about implementation details.  Even though there are many published solutions such as the baseline BERT-Joint project and solutions from a Kaggle competition, I believe it's non-trivial to put together a working solution.
 
-# Favorite Charity
+## Favorite Charity
 
 TIL about code.org =D
 
-# Installation
+## Installation
 
-**Download and install Miniconda**
+Download and install Miniconda
 
 ```
 curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-**Create a python environment and install packages**
+Create a python environment and install packages
 
 ```
 conda create -y -n py36 python=3.6
@@ -45,14 +45,14 @@ conda activate py36
 conda install -y pytorch transformers tensorboardX tqdm
 ```
 
-**Clone the project repo**
+Clone the project repo
 
 ```
 git clone git@github.com:igorsyl/natural-questions.git
 cd natural-questions
 ```
 
-# Evaluation Results
+## Evaluation Results
 
 Here are the evaluation results for tiny-dev dataset using bert-base-uncased:
 
@@ -75,28 +75,28 @@ For comparison, here are the results for the baseline BER-Join on the full dev d
   "short-best-threshold-f1": 0.5620,
 ```
 
-# Replicating Results
+## Replicating Results
 
-**Create a directory to hold dataset and training model:**
+Create a directory to hold dataset and training model:
 
 ```
 mkdir data
 cd data
 ```
 
-**Download the simplified version of the natural questions dataset:**
+Download the simplified version of the natural questions dataset:
 
 ```
 curl -O https://storage.cloud.google.com/natural_questions/v1.0-simplified/simplified-nq-train.jsonl.gz
 ```
 
-**Download the tiny dev dataset:"**
+Download the tiny dev dataset:
 
 ```
 gsutil cp -R gs://bert-nq/tiny-dev .
 ```
 
-**Optionally, download the full version of the dataset:**
+Optionally, download the full version of the dataset:
 ```
 gsutil -m cp -r gs://natural_questions data
 ```
@@ -109,7 +109,7 @@ python run.py --train
 
 ### Evaluating
 
-**This will generate predictions and run the nq_eval script**
+This will generate predictions and run the nq_eval script
 
 ```
 python run.py --eval
