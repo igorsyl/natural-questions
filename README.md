@@ -37,7 +37,7 @@ curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-Create a python environment and install packages
+Create a python environment and install packages:
 
 ```
 conda create -y -n py36 python=3.6
@@ -45,11 +45,17 @@ conda activate py36
 conda install -y pytorch transformers tensorboardX tqdm
 ```
 
-Clone the project repo
+Clone the project repo:
 
 ```
 git clone git@github.com:igorsyl/natural-questions.git
 cd natural-questions
+```
+
+Clone the natural-questions repository containing the evaluation script:
+
+```
+git clone https://github.com/google-research-datasets/natural-questions
 ```
 
 ## Evaluation Results
