@@ -1,4 +1,4 @@
-# Huggingface Transformers Model for Google's Natural Questions Dataset
+# Transformers Model for Google's Natural Questions Dataset
 
 ## Overview
 
